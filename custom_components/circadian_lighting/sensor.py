@@ -25,8 +25,26 @@ _LOGGER = logging.getLogger(__name__)
 
 ICON = 'mdi:theme-light-dark'
 ####################################
-hue_gateway = "INPUTHUEIPHERE"
-key = "INPUTHUEAPIKEYHERE"
+##grab HUE information automatically...
+#comment out lines 30-42 if you would like to manually configure Hue
+entriesJson = open('/.storage/core.config_entries',)
+json_data = json.load(entriesJson)
+
+response = json.loads(json_data)
+for entry in response["data"]["entries"]:
+    if entry["title"] == "Philip's hue":
+        break
+hue_gateway = entry["data"]["host"]
+
+for entry in response["data"]["entries"]:
+    if entry["title"] == "Philip's hue":
+        break
+key = entry["data"]["username"]
+
+##uncomment the following two lines (45-46) for manual Configuration
+##add the IP and API key below
+#hue_gateway = "INPUTHUEIPHERE"
+#key = "INPUTHUEAPIKEYHERE"
 ####################################
 def update_scene_lights(scene, brightness, x_val, y_val, mired):
 	url = "http://" + hue_gateway + "/api/" + key + "/scenes/" + scene + "/"
