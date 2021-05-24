@@ -1,8 +1,8 @@
 {
   "domain": "circadian_lighting",
   "name": "Circadian Lighting",
-  "documentation": "https://github.com/robertomano24/hass-circadian_lighting",
-  "version": "1.0.15",
+  "documentation": "https://github.com/robertomano24/circadian_lighting-hue",
+  "version": "2.0.0",
   "dependencies": [],
   "requirements": ["timezonefinder==4.2.0"]
 }
