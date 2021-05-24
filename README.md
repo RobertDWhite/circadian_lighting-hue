@@ -15,7 +15,7 @@ NOTE: Be sure the switches (created in config.yaml) are ON before trying to use 
 
 **MANUALLY Obtain Hue API Key**
 
-This method is obsolete, but you may prefer a manual configuration of the Hue integration piece of this component. If you, please read below. However, if you allow the plugin to automatically get your API and IP, this will be unnecessary, and you can skip it.
+This method is obsolete, but you may prefer a manual configuration of the Hue integration piece of this component. If so, please read below. However, if you allow the plugin to automatically get your API and IP, this will be unnecessary, and you can skip it.
 https://developers.meethue.com/develop/get-started-2/
 
 Follow the directions on the meethue dev site to connect to your bridge and make the appropraite API calls. Your API key will be the "username" that is created once you link your bridge (i.e., by pressing the pair button) to your API debugger.
