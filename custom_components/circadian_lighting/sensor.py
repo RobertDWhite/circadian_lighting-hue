@@ -47,25 +47,25 @@ key = entry["data"]["username"]
 #key = "INPUTHUEAPIKEYHERE"
 ####################################
 def update_scene_lights(scene, brightness, x_val, y_val, mired):
-	url = "http://" + hue_gateway + "/api/" + key + "/scenes/" + scene + "/"
-	r = requests.get(url).json()
-	r = r['lights']
-	_LOGGER.debug("Updating scene id:" + str(scene))
-	for val in r:
-		url = "http://" + hue_gateway + "/api/" + key + "/lights/" + str(val)
-		t = requests.get(url).json()
-		type = t['type']
-		url = "http://" + hue_gateway + "/api/" + key + "/scenes/" + scene + "/lightstates/" + str(val)
-		if type == 'Color temperature light':
-			body = json.dumps({'on': True, 'bri': brightness, 'ct': mired})
-		if type == 'Extended color light':
-			body = json.dumps({'on': True, 'bri': brightness, 'ct': mired})
-		if type == 'Dimmable light':
-			body = json.dumps({'on': True, 'bri': brightness})
-		r = requests.put(url, data=body)
-		_LOGGER.debug("light id: " + str(val) + " body " + str(body) + " status code: " + str(r.status_code))
-		if int(r.status_code) != int(200):
-			_LOGGER.error("light id: " + str(val) + " body" + str(body) + " status code: " + str(r.status_code))
+    url = "http://" + hue_gateway + "/api/" + key + "/scenes/" + scene + "/"
+    r = requests.get(url).json()
+    r = r['lights']
+    _LOGGER.debug("Updating scene id:" + str(scene))
+    for val in r:
+        url = "http://" + hue_gateway + "/api/" + key + "/lights/" + str(val)
+        t = requests.get(url).json()
+        type = t['type']
+        url = "http://" + hue_gateway + "/api/" + key + "/scenes/" + scene + "/lightstates/" + str(val)
+        if type == 'Color temperature light':
+            body = json.dumps({'on': True, 'bri': brightness, 'ct': mired})
+        if type == 'Extended color light':
+            body = json.dumps({'on': True, 'bri': brightness, 'ct': mired})
+        if type == 'Dimmable light':
+            body = json.dumps({'on': True, 'bri': brightness})
+        r = requests.put(url, data=body)
+        _LOGGER.debug("light id: " + str(val) + " body " + str(body) + " status code: " + str(r.status_code))
+        if int(r.status_code) != int(200):
+            _LOGGER.error("light id: " + str(val) + " body" + str(body) + " status code: " + str(r.status_code))
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Set up the Circadian Lighting sensor."""
@@ -153,22 +153,22 @@ class CircadianSensor(Entity):
             self._attributes['colortemp'] = self._cl.data['colortemp']
             self._attributes['rgb_color'] = self._cl.data['rgb_color']
             self._attributes['xy_color'] = self._cl.data['xy_color']
-	    min_brightness = 30
-	    max_brightness = 100
-	    brightness = int(((max_brightness - min_brightness) * ((100+self._cl.data['percent']) / 100)) + (min_brightness / 100) * 254)
+        min_brightness = 30
+        max_brightness = 100
+        brightness = int(((max_brightness - min_brightness) * ((100+self._cl.data['percent']) / 100)) + (min_brightness / 100) * 254)
             ct = color_temperature_kelvin_to_mired(self._cl.data['colortemp'])
             rgb = color_temperature_to_rgb(self._cl.data['colortemp'])
-	    _LOGGER.debug("RGB values: " + str(rgb))
+        _LOGGER.debug("RGB values: " + str(rgb))
             xy = color_RGB_to_xy(rgb[0],rgb[1],rgb[2])
 
             url = "http://" + hue_gateway + "/api/" + key + "/scenes/"
-	    r = requests.get(url).json()
+        r = requests.get(url).json()
 
-	    scenes = []
+        scenes = []
             for val in r:
-		name = r[val]['name']
-		if re.match(r"Circadian", name):
-		    scenes.append(val)
+        name = r[val]['name']
+        if re.match(r"Circadian", name):
+            scenes.append(val)
 
-	    for val in scenes:
-		update_scene_lights(val, brightness, xy[0], xy[1], ct)
+        for val in scenes:
+        update_scene_lights(val, brightness, xy[0], xy[1], ct)
