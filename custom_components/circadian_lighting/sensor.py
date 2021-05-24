@@ -26,19 +26,14 @@ _LOGGER = logging.getLogger(__name__)
 ICON = 'mdi:theme-light-dark'
 ####################################
 ##grab HUE information automatically...
-#comment out lines 30-42 if you would like to manually configure Hue
-entriesJson = open('/.storage/core.config_entries',)
-json_data = json.load(entriesJson)
+#comment out lines 30-37 if you would like to manually configure Hue
+entriesJson = open('/config/.storage/core.config_entries',)
+response = json.load(entriesJson)
 
-response = json.loads(json_data)
 for entry in response["data"]["entries"]:
-    if entry["title"] == "Philip's hue":
+    if entry["title"] == "Philips hue":
         break
 hue_gateway = entry["data"]["host"]
-
-for entry in response["data"]["entries"]:
-    if entry["title"] == "Philip's hue":
-        break
 key = entry["data"]["username"]
 
 ##uncomment the following two lines (45-46) for manual Configuration

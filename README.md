@@ -2,10 +2,20 @@
 
 Forked from https://github.com/claytonjn/hass-circadian_lighting .
 
-Specifically modified to work better with Hue, where Hue scenes can be updated in real time with Circadian Lighting Values. This fork requires you to obtain your Hue API key and your Hue bridge IP address. Please read below for instructions.
+Specifically modified to work better with Hue, where Hue scenes can be updated in real time with Circadian Lighting Values. Add your Hue Bridge to Home Assistant via the GUI.
 
-**Obtain Hue API Key**
+**Setup Scenes**
 
+In each room where you would like to turn on the Circadian Light scene with a Hue switch/dimmer, you will need a scene in that room called "Circadian" without quotes. The "C" must be capitalized. I use the iConnectHue app on my iPhone to make these scenes. Different apps may not appropriately make the scenes, and I recommend iConnectHue anyway. In a room, like Kitchen, add a scene with the bulbs you would like to be turned on with your switch. The color/brightness values do not matter as this plugin will overwrite them. Create the Circadian scene and assign the scene to your switch. Setup this plugin the rest of the way like Clayton recommends below. You can see examples from my HA config here: https://github.com/robertomano24/home-assistant
+
+NOTE: Be sure the switches (created in config.yaml) are ON before trying to use the scene function described above. You can trun the swtiches on from the HA GUI or via HomeKit if you sync your HA instance to HomeKit.
+
+
+--------------------------------------------------------------------------------------------------------------
+
+**MANUALLY Obtain Hue API Key**
+
+This method is obsolete, but you may prefer a manual configuration of the Hue integration piece of this component. If so, please read below. However, if you allow the plugin to automatically get your API and IP, this will be unnecessary, and you can skip it.
 https://developers.meethue.com/develop/get-started-2/
 
 Follow the directions on the meethue dev site to connect to your bridge and make the appropraite API calls. Your API key will be the "username" that is created once you link your bridge (i.e., by pressing the pair button) to your API debugger.
@@ -15,13 +25,6 @@ On the custom_components/circadian_lighting/sensor.py file, replace lines 28 and
 hue_gateway = "INPUTHUEIPHERE" <--------put your HUE Bridge IP here...
 
 key = "INPUTHUEAPIKEYHERE" <---------put the API key here
-
-
-**Setup Scenes**
-
-In each room where you would like to turn on the Circadian Light scene with a Hue switch/dimmer, you will need a scene in that room called "Circadian" wihtout quotes. The "C" must be capitalized. I use the iConnectHue app on my iPhone to make these scenes. Different apps may not appropriately make the scenes, and I recommend iConnectHue anyway. In a room, like Kitchen, add a scene with the bulbs you would like to be turned on with your switch. The color/brightness values do not matter as this plugin will overwrite them. Create the Circadian scene and assign the scene to your switch. Setup this plugin the rest of the way like Clayton recommends below. You can see examples from my HA config here: https://github.com/robertomano24/home-assistant
-
-NOTE: Be sure the switches (created in config.yaml) are ON before trying to use the scene function described above. You can trun the swtiches on from the HA GUI or via HomeKit if you sync your HA instance to HomeKit.
 
 --------------------------------------------------------------------------------------------------------------
 ## Stay healthier and sleep better by syncing your lights with natural daylight to maintain your circadian rhythm!
