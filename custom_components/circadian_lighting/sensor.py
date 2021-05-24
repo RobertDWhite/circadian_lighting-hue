@@ -159,11 +159,11 @@ class CircadianSensor(Entity):
             url = "http://" + hue_gateway + "/api/" + key + "/scenes/"
             r = requests.get(url).json()
 
-        scenes = []
+            scenes = []
             for val in r:
-        name = r[val]['name']
-        if re.match(r"Circadian", name):
-            scenes.append(val)
+                name = r[val]['name']
+                if re.match(r"Circadian", name):
+                    scenes.append(val)
 
-        for val in scenes:
-        update_scene_lights(val, brightness, xy[0], xy[1], ct)
+            for val in scenes:
+                update_scene_lights(val, brightness, xy[0], xy[1], ct)
