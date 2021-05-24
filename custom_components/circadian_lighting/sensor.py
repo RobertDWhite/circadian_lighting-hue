@@ -148,16 +148,16 @@ class CircadianSensor(Entity):
             self._attributes['colortemp'] = self._cl.data['colortemp']
             self._attributes['rgb_color'] = self._cl.data['rgb_color']
             self._attributes['xy_color'] = self._cl.data['xy_color']
-        min_brightness = 30
-        max_brightness = 100
-        brightness = int(((max_brightness - min_brightness) * ((100+self._cl.data['percent']) / 100)) + (min_brightness / 100) * 254)
+            min_brightness = 30
+            max_brightness = 100
+            brightness = int(((max_brightness - min_brightness) * ((100+self._cl.data['percent']) / 100)) + (min_brightness / 100) * 254)
             ct = color_temperature_kelvin_to_mired(self._cl.data['colortemp'])
             rgb = color_temperature_to_rgb(self._cl.data['colortemp'])
-        _LOGGER.debug("RGB values: " + str(rgb))
+            _LOGGER.debug("RGB values: " + str(rgb))
             xy = color_RGB_to_xy(rgb[0],rgb[1],rgb[2])
 
             url = "http://" + hue_gateway + "/api/" + key + "/scenes/"
-        r = requests.get(url).json()
+            r = requests.get(url).json()
 
         scenes = []
             for val in r:
