@@ -3,6 +3,7 @@
 Forked from https://github.com/claytonjn/hass-circadian_lighting .
 
 Specifically modified to work better with Hue, where Hue scenes can be updated in real time with Circadian Lighting Values. Add your Hue Bridge to Home Assistant via the GUI.
+Blog: https://whitematter.tech/2021/live-better-with-circadian-lighting/
 
 **Setup Scenes**
 
