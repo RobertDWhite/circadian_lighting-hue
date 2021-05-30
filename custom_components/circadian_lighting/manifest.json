@@ -4,5 +4,6 @@
   "documentation": "https://github.com/robertomano24/circadian_lighting-hue",
   "version": "2.0.0",
   "dependencies": [],
-  "requirements": ["timezonefinder==4.2.0"]
+  "requirements": ["timezonefinder==4.2.0"],
+  "iot_class": "calculated"
 }
