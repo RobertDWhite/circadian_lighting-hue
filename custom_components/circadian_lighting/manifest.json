@@ -3,7 +3,7 @@
   "name": "Circadian Lighting",
   "documentation": "https://github.com/robertomano24/circadian_lighting-hue",
   "version": "2.0.0",
-  "dependencies": [],
+  "dependencies": ["sensor","switch"],
   "requirements": ["timezonefinder==4.2.0"],
   "iot_class": "calculated"
 }
