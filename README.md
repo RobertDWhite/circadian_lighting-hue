@@ -1,6 +1,6 @@
 # Circadian Lighting [[Home Assistant](https://www.home-assistant.io/) Component]
 
-Forked from https://github.com/claytonjn/hass-circadian_lighting .
+Forked from https://github.com/claytonjn/hass-circadian_lighting . My fork currently maintains the older version of the sensor file as there seems to be no reason to modify it at this time. The Hue integration works great, and for those with only Hue lights, I recommend this for for now.
 
 Specifically modified to work better with Hue, where Hue scenes can be updated in real time with Circadian Lighting Values. Add your Hue Bridge to Home Assistant via the GUI.
 Blog: https://whitematter.tech/2021/live-better-with-circadian-lighting/
