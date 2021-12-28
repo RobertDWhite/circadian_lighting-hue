@@ -34,7 +34,7 @@ for entry in response["data"]["entries"]:
     if entry["title"] == "Philips hue":
         break
 hue_gateway = entry["data"]["host"]
-key = entry["data"]["username"]
+key = entry["data"]["api_key"]
 
 ##uncomment the following two lines (45-46) for manual Configuration
 ##add the IP and API key below
