@@ -3,11 +3,11 @@
 Forked from https://github.com/claytonjn/hass-circadian_lighting . My fork currently maintains the older version of the sensor file as there seems to be no reason to modify it at this time. The Hue integration works great, and for those with only Hue lights, I recommend this for for now.
 
 Specifically modified to work better with Hue, where Hue scenes can be updated in real time with Circadian Lighting Values. Add your Hue Bridge to Home Assistant via the GUI.
-Blog: https://whitematter.tech/2021/live-better-with-circadian-lighting/
+Blog: https://whitematter.tech/posts/live-better-with-circadian-lighting/live-better-with-circadian-lighting/
 
 **Setup Scenes**
 
-In each room where you would like to turn on the Circadian Light scene with a Hue switch/dimmer, you will need a scene in that room called "Circadian" without quotes. The "C" must be capitalized. I use the iConnectHue app on my iPhone to make these scenes. Different apps may not appropriately make the scenes, and I recommend iConnectHue anyway. In a room, like Kitchen, add a scene with the bulbs you would like to be turned on with your switch. The color/brightness values do not matter as this plugin will overwrite them. Create the Circadian scene and assign the scene to your switch. Setup this plugin the rest of the way like Clayton recommends below. You can see examples from my HA config here: https://github.com/robertomano24/home-assistant
+In each room where you would like to turn on the Circadian Light scene with a Hue switch/dimmer, you will need a scene in that room called "Circadian" without quotes. The "C" must be capitalized. I use the iConnectHue app on my iPhone to make these scenes. Different apps may not appropriately make the scenes, and I recommend iConnectHue anyway. In a room, like Kitchen, add a scene with the bulbs you would like to be turned on with your switch. The color/brightness values do not matter as this plugin will overwrite them. Create the Circadian scene and assign the scene to your switch. Setup this plugin the rest of the way like Clayton recommends below. You can see examples from my HA config here: https://github.com/RobertDWhite/home-assistant
 
 NOTE: Be sure the switches (created in config.yaml) are ON before trying to use the scene function described above. You can trun the switches on from the HA GUI or via HomeKit if you sync your HA instance to HomeKit.
 
